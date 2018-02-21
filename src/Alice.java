@@ -15,6 +15,15 @@ public class Alice {
 
     }
 
+    public Alice(String path, File file, Scanner scanner, Map<Character, Integer> map, double counter, String line) {
+        this.path = path;
+        this.file = file;
+        this.scanner = scanner;
+        this.map = map;
+        this.counter = counter;
+        this.line = line;
+    }
+
     public void countChars() {
         try {
             System.out.println(path);
