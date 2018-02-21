@@ -27,14 +27,14 @@ public class Alice {
     public void countChars() {
         try {
             System.out.println(path);
-            file = new File(path + "Alice.txt");
-            scanner = new Scanner(file);
-            map = new TreeMap<>();
+            this.setFile(new File(path + "Alice.txt"));
+            this.setScanner(new Scanner(file));
+            this.setMap(new TreeMap<>());
             for (int i = 97; i < 123; i++) {
                 map.put((char) i, 0);
             }
             while (scanner.hasNextLine()) {
-                line = scanner.nextLine().toLowerCase();
+                this.setLine(scanner.nextLine().toLowerCase());
                 for (Character c : line.toCharArray()) {
                     if (Character.isLetter(c)) {
                         map.put(c, map.get(c) + 1);
@@ -51,7 +51,7 @@ public class Alice {
 
     public void calculatePercent() {
         try {
-            map = new TreeMap<>();
+            this.setMap(new TreeMap<>());
             for (Map.Entry<Character, Integer> entry : map.entrySet()) {
                 double d = (entry.getValue() / counter) * 100.0;
                 System.out.println("Letter " + entry.getKey() +
@@ -60,5 +60,53 @@ public class Alice {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public static String getPath() {
+        return path;
+    }
+
+    public static void setPath(String path) {
+        Alice.path = path;
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
+    }
+
+    public Scanner getScanner() {
+        return scanner;
+    }
+
+    public void setScanner(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    public Map<Character, Integer> getMap() {
+        return map;
+    }
+
+    public void setMap(Map<Character, Integer> map) {
+        this.map = map;
+    }
+
+    public double getCounter() {
+        return counter;
+    }
+
+    public void setCounter(double counter) {
+        this.counter = counter;
+    }
+
+    public String getLine() {
+        return line;
+    }
+
+    public void setLine(String line) {
+        this.line = line;
     }
 }
